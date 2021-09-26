@@ -1,0 +1,61 @@
+#include <stdio.h>
+
+int main() {
+int n, g;
+float x,x1;
+
+  do{
+    printf ("введите номер примера (для выхода введите '0') : ");
+    scanf (" %d", &n);
+
+    switch( n ) //функция switch() для удобной навигации по программе
+    {
+      case 1:
+          
+          printf ("введите х: ");
+          scanf ("%f",&x);
+          x1 = (30*x+42)+(85*x/35);
+          printf("(30*x+42)+(85*x/35) = %.4f \n", x1);
+          break;
+      
+      case 2 :
+          
+          printf (" введите год: ");
+          scanf ("%d",&g);
+           if (g % 4 == 0)
+           {
+            if (g % 100 != 0)
+            {
+                printf ("- високосный\n");
+            }
+            else
+            {
+              if (g % 400 == 0)
+              {
+                printf ("- високосный\n");
+              }
+              else
+              {
+              printf ("- невысокосный\n");
+              }
+            }
+           }
+              
+          break;
+      case 3:
+          
+          printf (" %d\n",n);
+          break;
+      
+
+      case 0:      
+          printf ("пока\n");
+          break;
+      default:
+          printf( "Неправильный ввод.\n" );       
+    }
+    
+  }while(n!=0);
+
+return 0;
+}
