@@ -1,8 +1,9 @@
 #include <stdio.h>
+#include <math.h>
 
 int main() {
-int n, a,b,s,p;
-float ;
+int n;
+float a,b, x, x1;
 
   do{
     printf ("введите номер примера (для выхода введите '0') : ");
@@ -13,41 +14,57 @@ float ;
       case 1:
           
           printf ("введите размер сторон прямоугольника: ");
-          scanf ("%d %d",&a, &b);
-          s = a*b;
-          p = 2*(a+b);
-          printf("S = %d  P = %d\n", s,p);
+          scanf ("%f %f",&a, &b);
+          x = a*b;
+          x1 = 2*(a+b);
+          printf("S = %.2f  P = %.2f\n", x,x1);
           break;
       
       case 2 :
           
-          printf (" введите год: ");
-          scanf ("%d",&g);
-           if (g % 4 == 0)
-           {
-            if (g % 100 != 0)
-            {
-                printf ("- високосный\n");
-            }
-            else
-            {
-              if (g % 400 == 0)
-              {
-                printf ("- високосный\n");
-              }
-              else
-              {
-              printf ("- невысокосный\n");
-              }
-            }
-           }
-              
+          printf (" введите диаметр окружности: ");
+          scanf ("%f",&a);
+          x = M_PI*a;
+          printf("Длина окружности = %.2f\n", x);
           break;
       case 3:
-          
-          printf (" %d\n",n);
+          printf ("введите два числа: ");
+          scanf ("%f %f",&a, &b);
+          x = (a+b)/2;
+          printf (" %.2f\n",x);
           break;
-      
+
+      case 4:
+          
+          printf ("введите два ненулевых числа: ");
+          scanf ("%f %f",&a, &b);
+          a = pow(a,2); b = pow (b,2);
+          x = a+b;
+          printf ("a^2 + b^2 =  %.2f\n",x);
+          x = a-b;
+          printf ("a^2 - b^2 =  %.2f\n",x);
+          x = a*b;
+          printf ("a^2 * b^2 =  %.2f\n",x);
+          x = a/b;
+          printf ("a^2 / b^2 =  %.3f\n",x);
+
+          break;
+
+      case 5:
+
+          printf ("введите два ненулевых числа: ");
+          scanf ("%f %f",&a, &b);
+          a = fabs(a); b = fabs(b);
+          x = a+b;
+          printf ("|a| + |b| =  %.2f\n",x);
+          x = a-b;
+          printf ("|a| - |b| =  %.2f\n",x);
+          x = a*b;
+          printf ("|a| * |b| =  %.2f\n",x);
+          x = a/b;
+          printf ("|a| / |b| =  %.3f\n",x);
+
+          break;
 
       case 0:      
           printf ("пока\n");
