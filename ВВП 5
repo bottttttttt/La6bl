@@ -1,0 +1,99 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+float x[6] = {0};
+float y[4] = {0};
+int n;
+int i = 1;
+float a, b;
+
+  do{
+    printf ("введите номер примера (для выхода введите '0') : ");
+    scanf (" %d", &n);
+
+    switch( n )
+    {
+      case 1:
+          
+          printf ("введите координаты двух точек\n");
+          for (i=1; i<3; i++){
+            printf ("(x%d, y%d)= ", i,i );
+            scanf ( "%f %f", &x[i], &y[i]);
+          }
+          a = sqrt(pow(x[2]-x[1],2)+pow(y[2]-y[1],2));
+          printf("расстояие между ними = %f\n", a);
+          break;
+      
+      case 2 :
+          
+          printf (" введите координаты A, B и С на числовой оси: ");
+          scanf ("%f %f %f", &x[1], &x[2], &x[3]);
+          x[1] = fabs(x[1]-x[3]);
+          x[2] = fabs(x[2]-x[3]);
+          a = x[1] + x[2];
+          printf("|AC| = %.0f   |BC| = %.0f   |AC|+|BC| = %.0f\n", x[1],x[2], a);
+          break;
+
+      case 3:
+          printf (" введите координаты A, B и С на числовой оси: ");
+          scanf ("%f %f %f", &x[1], &x[2], &x[3]);
+
+          if(x[1]>x[3]){ //начинается сортировка по возрастанию, чтобы найти С
+              x[1]=x[1]+x[3]; x[3]=x[1]-x[3]; x[1]=x[1]-x[3]; //извращенный способ замены значений
+            }
+          for (i=1; i<3; i++){
+            if(x[i]>x[i+1]){
+              x[i]=x[i]+x[i+1]; x[i+1]=x[i]-x[i+1]; x[i]=x[i]-x[i+1];            
+            }          
+          }
+          printf("C = %.2f\n", x[2]);
+          
+          x[1] = fabs(x[1]-x[2]);
+          x[3] = fabs(x[3]-x[2]);
+          a = x[1] * x[3];
+          printf("|AC| = %.0f   |BC| = %.0f   |AC|*|BC| = %.0f\n", x[1],x[3],a);
+          
+           break;
+
+      case 4:      
+          printf (" введите координаты двух противоположных вершин прямоугольника\n");
+          for (i=1; i<3; i++){
+            printf ("(x%d, y%d)= ", i,i );
+            scanf ( "%f %f", &x[i], &y[i]);
+          }
+            a = fabs(y[1]-y[2]); //сторона a
+            b = fabs(x[2]-x[1]); //сторона b
+            x[1] = (a+b)*2; // P
+            x[2] = a*b; // S
+            printf("a = %.0f   b = %.0f   P = %.0f   S = %.0f\n", a,b,x[1],x[2]);
+
+          break;
+
+      case 5:   
+        printf (" введите координаты трех вершин треугольника\n");
+             for (i=1; i<4; i++){ //цикл для ввода координат
+            printf ("(x%d, y%d)= ", i,i );
+            scanf ( "%f %f", &x[i], &y[i]);
+          }
+          x[4] = sqrt(pow(x[2]-x[1],2)+pow(y[2]-y[1],2)); //находим стороны по формуле
+          x[5] = sqrt(pow(x[3]-x[2],2)+pow(y[3]-y[2],2));
+          x[0] = sqrt(pow(x[3]-x[1],2)+pow(y[3]-y[1],2));
+          a = (x[4]+x[5]+x[0])/2; //полупериметр
+          b = sqrt(a*(a-x[4])*(a-x[5])*(a-x[0])); //площадь
+          printf("P = %.0f   S = %.0f\n", a,b);
+
+
+            break;     
+
+      case 0:      
+          printf ("пока\n");
+          break;
+      default:
+          printf( "Неправильный ввод.\n" );       
+    }
+    
+  }while(n!=0);
+
+return 0;
+}
