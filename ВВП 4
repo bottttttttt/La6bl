@@ -1,9 +1,10 @@
+   
 #include <stdio.h>
 #include <math.h>
 
 int main() {
 int n;
-float a,b, x, x1;
+float a,b, x;
 
   do{
     printf ("введите номер примера (для выхода введите '0') : ");
@@ -16,8 +17,9 @@ float a,b, x, x1;
           printf ("введите размер сторон прямоугольника: ");
           scanf ("%f %f",&a, &b);
           x = a*b;
-          x1 = 2*(a+b);
-          printf("S = %.2f  P = %.2f\n", x,x1);
+          printf("S = %.2f ", x);
+          x = 2*(a+b);
+          printf(" P = %.2f\n", x);
           break;
       
       case 2 :
@@ -38,7 +40,7 @@ float a,b, x, x1;
           
           printf ("введите два ненулевых числа: ");
           scanf ("%f %f",&a, &b);
-          a = pow(a,2); b = pow (b,2);
+          a = pow(a,2); b = pow (b,2); //заменяю переменные их квадратами, чтобы меньше писать
           x = a+b;
           printf ("a^2 + b^2 =  %.2f\n",x);
           x = a-b;
@@ -54,7 +56,7 @@ float a,b, x, x1;
 
           printf ("введите два ненулевых числа: ");
           scanf ("%f %f",&a, &b);
-          a = fabs(a); b = fabs(b);
+          a = fabs(a); b = fabs(b); //аналогично только модули
           x = a+b;
           printf ("|a| + |b| =  %.2f\n",x);
           x = a-b;
