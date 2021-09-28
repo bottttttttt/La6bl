@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 int main() {
-int n, g, a,b;
-float x,x1;
+int n, a,b,s,p;
+float ;
 
   do{
     printf ("введите номер примера (для выхода введите '0') : ");
@@ -16,7 +16,7 @@ float x,x1;
           scanf ("%d %d",&a, &b);
           s = a*b;
           p = 2*(a+b);
-          printf("S = %d \n P=%d", s,p);
+          printf("S = %d  P = %d\n", s,p);
           break;
       
       case 2 :
