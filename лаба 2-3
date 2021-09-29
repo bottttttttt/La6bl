@@ -1,7 +1,8 @@
 #include <stdio.h>
+#include <math.h>
 
 int main() {
-int n, g;
+int n, g, k;
 float x,x1;
 
   do{
@@ -39,12 +40,25 @@ float x,x1;
               printf ("- невысокосный\n");
               }
             }
+           }else{
+             printf ("- невысокосный\n");
            }
               
           break;
+
       case 3:
           
-          printf (" %d\n",n);
+          printf ("введите n: ");
+          scanf ("%d",&g);
+          if (g<=1||g>=100){
+            printf ("n должно быть (1 <= n <= 100), давай по новой\n");
+            break;
+          }
+          for (k = 1; k<=g; k++){
+            x = (1-(1/pow(k,k))); //вроде бы верно
+            printf("%.4f \n", x);
+          }
+          
           break;
       
 
