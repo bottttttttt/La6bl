@@ -1,0 +1,90 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+int n;
+float a, b, c, x, y;
+
+  do{
+    printf ("введите номер примера (для выхода введите '0') : ");
+    scanf (" %d", &n);
+
+    switch( n )
+    {
+      case 1: //замена местами содержимого А и В
+          
+        printf ("введите А и В:");
+        scanf ( "%f %f", &a, &b);
+        a=a+b;
+        b=a-b;
+        a=a-b;
+        printf("теперь А = %.2f, а В = %.2f\n", a,b);
+        break;  
+      
+      case 2 : //замена местами содержимого А, В и С с новой переменной
+          
+        printf ("введите А, В и C:");
+        scanf ( "%f %f %f", &a, &b, &c);
+        x=a;
+        a=c;
+        c=b;
+        b=x;
+        printf("теперь А=%.2f, В=%.2f, а С=%.2f\n", a,b,c);
+        break;
+
+      case 3: //почти то же самое
+        printf ("введите А, В и C:");
+        scanf ( "%f %f %f", &a, &b, &c);
+        x=a;
+        a=b;
+        b=c;
+        c=x;
+        printf("теперь А=%.2f, В=%.2f, а С=%.2f\n", a,b,c);
+          
+          break;
+
+      case 4: //значение ф-ции     
+        printf ("введите x: ");
+        scanf ( "%f ", &a);  
+        y = 3*pow(a,6)-6*pow(a,2)-7;
+        printf ("при x=%.2f, 3x^6 − 6x^2 − 7 = %.2f",x,y);
+          break;
+
+      case 5: //значение ф-ции  
+        printf ("введите x: ");
+        scanf ( "%f ", &a);  
+        y = 4*pow((x-3),6)-7*pow(x-3,3)+2;
+        printf ("при x=%.2f, 4(x−3)^6 − 7(x−3)^3 + 2 = %.2f",x,y);
+            break;  
+            
+      case 6: //возведение в 8 степень  
+        printf ("введите A: ");
+        scanf ( "%f ", &a);
+        a = a*a;//a^2
+        a = a*a;//a^4
+        a = a*a;//a^8
+        printf ("А^8 = %.1f",a);
+            break;
+
+      case 7: // возведение в 15 степень  
+        printf ("введите A: ");
+        scanf ( "%f ", &a);
+        b = a*a;//a^2
+        a = b*a;//a^3
+        b = a*a;//a^6
+        b = b*b;//a^12
+        a = a*b;//a^15
+        printf ("А^15 = %.1f",a);
+            break;    
+
+      case 0:      
+          printf ("пока\n");
+          break;
+      default:
+          printf( "Неправильный ввод.\n" );       
+    }
+    
+  }while(n!=0);
+
+return 0;
+}
