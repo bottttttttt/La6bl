@@ -45,36 +45,36 @@ float a, b, c, x, y;
 
       case 4: //значение ф-ции     
         printf ("введите x: ");
-        scanf ( "%f ", &a);  
+        scanf ( "%f", &a);  
         y = 3*pow(a,6)-6*pow(a,2)-7;
-        printf ("при x=%.2f, 3x^6 − 6x^2 − 7 = %.2f",x,y);
+        printf ("при x=%.2f, 3x^6 − 6x^2 − 7 = %.2f\n",a,y);
           break;
 
       case 5: //значение ф-ции  
         printf ("введите x: ");
-        scanf ( "%f ", &a);  
+        scanf ( "%f", &x);  
         y = 4*pow((x-3),6)-7*pow(x-3,3)+2;
-        printf ("при x=%.2f, 4(x−3)^6 − 7(x−3)^3 + 2 = %.2f",x,y);
+        printf ("при x=%.2f, 4(x−3)^6 − 7(x−3)^3 + 2 = %.2f\n",x,y);
             break;  
             
       case 6: //возведение в 8 степень  
         printf ("введите A: ");
-        scanf ( "%f ", &a);
+        scanf ( "%f", &a);
         a = a*a;//a^2
         a = a*a;//a^4
         a = a*a;//a^8
-        printf ("А^8 = %.1f",a);
+        printf ("А^8 = %.1f\n",a);
             break;
 
       case 7: // возведение в 15 степень  
         printf ("введите A: ");
-        scanf ( "%f ", &a);
+        scanf ( "%f", &a);
         b = a*a;//a^2
         a = b*a;//a^3
         b = a*a;//a^6
         b = b*b;//a^12
         a = a*b;//a^15
-        printf ("А^15 = %.1f",a);
+        printf ("А^15 = %.1f\n",a);
             break;    
 
       case 0:      
