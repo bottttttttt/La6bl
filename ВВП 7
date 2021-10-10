@@ -1,0 +1,120 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+int n;
+float x,x1, a, y,s,t,b,c,a2,b2,c2;
+
+  do{
+    printf ("введите номер примера (для выхода введите '0') : ");
+    scanf (" %d", &n);
+
+    switch( n )
+    {
+      case 1:
+          
+         printf ("введите значение угла а в градусах: ");
+          scanf ("%f",&a);
+          if (a<=0||a>=360){ 
+            printf ("значение должно быть (0 <= а <= 360), давай по новой\n");
+            break;
+          }
+          x = a*180/M_PI;
+          printf("%.2f градусов = %.2f радиан\n",a, x);
+
+          break;
+      
+      case 2 :
+          
+           printf ("введите значение угла а в радианах: ");
+          scanf ("%f",&a);
+          if (a<=0||a>=2*M_PI){ 
+            printf ("значение должно быть (0 <= а <= 2*Pi), давай по новой\n");
+            break;
+          }
+          x = a*M_PI/180;
+          printf("%.2f радиан = %.2f градусов \n",a, x);
+            
+          break;
+
+      case 3:
+          
+          printf ("введите количество килограмм конфет: ");
+          scanf ("%f",&x);
+          printf ("и стоимость: ");
+          scanf ("%f",&a);
+
+          x1=a/x;
+          printf("1кг = %.2fруб \n", x1);
+      
+          printf ("введите еще количество килограмм конфет: ");
+          scanf ("%f",&y);
+
+          a = x1*y;
+
+          printf("%.2fкг = %.2fруб \n",y, a);
+
+          break;
+
+      
+      case 4:      
+          printf ("введите,пожалуйста, скорость 1-го автомобиля (км/ч) : ");
+          scanf ("%f",&x);
+          printf ("скорость 2-го: ");
+          scanf ("%f",&x1);
+          printf ("а теперь расстояние между ними (км): ");
+          scanf ("%f",&s);
+          printf ("...и время (ч): ");
+          scanf ("%f",&t);
+
+          y = x*t+x1*t+s;        
+
+          printf("расстояние между автомобилями через %.2f ч = %.2f км\n",t,y);
+
+
+          break;
+
+      case 5:      
+          printf ("введите B: ");
+          scanf ("%f",&b);
+          a=0;
+          {
+            printf ("введите A: ");
+            scanf ("%f",&a);
+            if (a==0){ 
+              printf (" коэффициент A не должен быть равен нулю, давай по новой\n");
+            }
+          }while(a==0);
+          
+          x= -(b/a);
+
+          printf ("%.0f·x + %.0f = 0\n x = -( %.0f/%.0f)\n x = %.2f\n",a,b,a,b, x);
+
+          break;
+
+      case 6:      
+        printf ("введите A1, B1 и C1: ");
+        scanf ("%f %f %f",&a,&b,&c);
+        printf ("а теперь A2, B2 и C2: ");
+        scanf ("%f %f %f",&a2,&b2,&c2);
+
+        y = (c2/b2-a2*c/a/b2)/(1-a2*b/a/b2);
+        x = (c-b*y)/a;
+
+        
+        printf (" %.0fx + %.0fy = %.0f\n %.0fx + %.0fy = %.0f\n x = (%.0f - %.0fy)/%.0f\n y = (%.0f - %.0fx)/%.0f\n y = (%.0f - %.0f(%.0f-%.0fy)/%.0f)/%.0f\n y = %.2f; x = %.2f\n",a,b,c, a2,b2,c2 ,c,b,a, c2,b2,a2, c2,b2,c,b,a,a2 , y,x);
+
+          break;
+
+
+      case 0:      
+          printf ("пока\n");
+          break;
+      default:
+          printf( "Неправильный ввод.\n" );       
+    }
+    
+  }while(n!=0);
+
+return 0;
+}
