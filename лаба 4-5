@@ -1,0 +1,45 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <malloc.h>
+#include <stdlib.h>
+
+int main(void) {
+
+int *x;  // указатель на массив
+  int i,j, n, xx;
+ xx = 1;
+  printf("Введите размер массива: ");
+  scanf("%d", &n); 
+  x = (int*)malloc(n * sizeof(int)); // Выделение памяти
+  
+  for (i = 0; i<n; i++)// заполняем массив
+  {
+    printf("x[%d] = ", i);
+    scanf("%d", &x[i]);
+  } 
+
+
+for (j=1; j<n-1; j++) //сортировка
+{
+  for (i=0; i<n-j; i++)
+  {
+    if (x[i]>x[i+1])
+    { 
+      xx = x[i];      //обмен значений
+      x[i] = x[i+1];
+      x[i+1] = xx;
+    }
+  }
+}
+
+
+
+  for (i = 0; i<n; i++)// Вывод элементов массива
+  { 
+    printf("%d ", x[i]);
+  }
+  
+  free(x);
+  getchar();   getchar();
+  return 0;
+}
