@@ -1,0 +1,165 @@
+#include <stdio.h>
+
+int main() {
+int n,a,a1,b,c,s;
+printf ("Доброго времени суток\n");
+
+  do{
+    printf ("\nБудьте добры, введите, пожалуйста, номер задания (для выхода введите '0') : ");
+    scanf (" %d", &n);
+
+    switch( n )
+    {
+      case 1:
+          
+         printf ("сколько прошло секунд? ");
+          scanf ("%d",&a);
+          a1 = a/60;
+          a = a%60;
+         
+          printf(" = %d минут и %d секунд\n",a1, a);
+
+          break;
+      
+      case 2: 
+      printf ("введите номер дня: ");
+      scanf ("%d",&a);
+
+      if (a<0||a>365){ 
+            printf ("в году всего 365 дней, давай по новой\n");
+            break;
+          }
+      
+      a = a%7;
+
+      switch( a )
+    {
+      case 1:
+      printf ("это %d - т.е. понедельник\n", a);
+      break;
+
+      case 2:
+      printf ("это %d - т.е. вторник\n", a);
+      break;
+
+      case 3:
+      printf ("это %d - т.е. среда\n", a);
+      break;
+
+      case 4:
+      printf ("это %d - т.е. четверг\n", a);
+      break;
+
+      case 5:
+      printf ("это %d - т.е. пятница\n", a);
+      break;
+
+      case 6:
+      printf ("это %d - т.е. суббота\n", a);
+      break;
+
+      case 0:
+      printf ("это %d - т.е. воскресенье\n", a);
+      break;
+
+    }
+
+          break;
+
+      case 3:
+        printf ("введите номер дня в году: ");
+        scanf ("%d",&a);
+        if (a<0||a>365){ 
+            printf ("в году всего 365 дней, давай по новой\n");
+            break;
+          }
+        printf ("введите номер 1 января в неделе: ");
+        scanf ("%d",&b);
+        if (b<0||b>7){ 
+            printf ("в неделе всего 7 дней, давай по новой\n");
+            break;
+          }
+           a = (a%7+(b-1))%7;
+
+      switch( a )
+    {
+      case 1:
+      printf ("это %d - т.е. понедельник\n", a);
+      break;
+
+      case 2:
+      printf ("это %d - т.е. вторник\n", a);
+      break;
+
+      case 3:
+      printf ("это %d - т.е. среда\n", a);
+      break;
+
+      case 4:
+      printf ("это %d - т.е. четверг\n", a);
+      break;
+
+      case 5:
+      printf ("это %d - т.е. пятница\n", a);
+      break;
+
+      case 6:
+      printf ("это %d - т.е. суббота\n", a);
+      break;
+
+      case 0:
+      printf ("это %d - т.е. воскресенье\n", a);
+      break;
+    }
+
+          break;
+
+      case 4:
+
+          printf ("введите A, B и C: ");
+          scanf(" %d %d %d",&a,&b,&c);
+
+          if (c>a||c>b){
+            a1 = 0;
+            s = a*b;
+          }else
+          {
+            a1 = (a/c)*(b/c);
+            s = (a*b)-(c*c*a1);
+          }
+
+          
+            printf ("количество квадратов со стороной %d на прямоугольнике %dХ%d  = %d \n",c, a,b,a1);
+            printf ("площадь незанятой части прямоугольника = %d\n",s);
+          
+            break;
+
+
+      case 5:
+          printf ("введите год: ");
+          scanf(" %d",&a);
+          if (a<0){ 
+            printf ("год - это положительное число, давай по новой\n");
+            break;
+          }
+
+          a1 = a/100+1;
+
+          printf ("- это %d-й век\n",a1);
+
+
+          break;
+
+
+      case 0:      
+          printf ("пока\n");
+          break;
+
+      default:
+          printf( "Неправильный ввод.\n" );       
+    }
+    
+  }while(n!=0);
+
+return 0;
+}
