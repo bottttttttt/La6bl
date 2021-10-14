@@ -1,0 +1,172 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main() {
+int n,a,b,c,x,y;
+char x1[]=" ";
+
+printf ("Доброго времени суток\n");
+
+  do{
+    printf ("\n\nВведите, номер задания (для выхода введите '0') : ");
+    scanf (" %d", &n);
+
+    switch( n )
+    {
+      case 1:
+
+        printf ("введите два числа: ");
+        scanf (" %d %d",&a,&b); 
+
+        if(a>b){
+          b = a;
+        }else{
+          if(b>a){
+            a = b;
+          }else{
+            a = 0;
+            b = 0;
+          }
+        }
+
+        printf ("A = %d, B = %d ",a,b);
+
+          break;
+      
+      case 2:  
+        printf ("введите три числа: ");
+        scanf ("%d %d %d",&a,&b,&c);
+
+
+        if((a+b>=b+c)&(a+b>=a+c)){
+          printf ("сумма двух наибольших = %d",a+b);
+        }else{
+          if((a+c>=b+c)&(a+c>=a+b)){
+            printf ("сумма двух наибольших = %d",a+c);
+          }else{
+            printf ("сумма двух наибольших = %d",c+b);
+          }
+        }
+
+          break;
+
+      case 3:
+
+        printf ("введите три числа, расположенных на плоскости: ");
+        scanf ("%d %d %d",&a,&b,&c);
+
+
+          if(abs(a-b)<abs(a-c)){
+            printf ("точка B ближе к точке А, и расстояние между ними = %d",abs(a-b));
+          }else{
+            if(abs(a-c)<abs(a-b)){
+              printf ("точка C ближе к точке А, и расстояние между ними = %d",abs(a-c));
+            }else{
+              printf ("расстояния от точек В и С до точки А одинаковы = %d",abs(a-b));
+            }
+          }
+
+          break;
+
+      case 4:
+
+          printf ("введите координаты точки M: ");
+          scanf(" %d %d",&y,&x);
+          if (x==0||y==0){ 
+            printf ("точка M не должна лежать на осях ОХ и ОY , давай по новой\n");
+            break;
+          }
+          
+          if (x>0){
+            if(y>0){
+              x = 1;
+            }else{
+              x = 2;
+            }
+          }else{
+            if(y<0){
+              x = 3;
+            }else{
+              x = 4;
+            }
+          }
+
+          printf ("точка M лежит в %d-ой координатной четверти\n",x);
+
+            break;
+
+
+      case 5:
+          printf ("введите число: "); 
+          scanf(" %d",&x);
+          
+      
+           if (x>0){
+            strcat(x1, "положительное");
+          }else{
+            if(x<0){
+              strcat(x1, "отрицательное");
+            }else{
+            strcat(x1, "нулевое");
+            }
+          }
+  
+          if(x!=0){
+            if (x%2 == 0){
+              strcat(x1, " четное");
+            }else{
+              strcat(x1, " нечетное");
+            }
+          }                          
+          strcat(x1, " число"); 
+
+          printf("- %s\n",x1);
+          strcpy(x1, "");
+
+          break;
+
+
+      case 6:      
+          printf ("введите число: ");
+          scanf ("%d",&x);
+
+         if (x<1||x>999){ 
+            printf ("число должно лежать в диапазоне 1–999, давай по новой\n");
+            break;
+          }
+
+          if (x%2 == 0){
+            strcat(x1, " четное");
+          }else{
+            strcat(x1, " нечетное");
+          }
+
+          if(x<10){
+            strcat(x1, " однозначное");
+          }else{
+            if(x<100){
+              strcat(x1, " двузначное");
+            }else{
+              strcat(x1, " трехзначное");
+            }
+          }
+          strcat(x1, " число"); 
+                
+          printf("- %s\n",x1);
+          strcpy(x1, "");
+
+          break;
+      
+      case 0:      
+          printf ("пока\n");
+          break;
+
+      default:
+          printf( "Неправильный ввод.\n" );       
+          }
+    
+  }while(n!=0);
+
+return 0;
+}
