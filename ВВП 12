@@ -1,0 +1,561 @@
+#include <stdio.h>
+#include <string.h>
+
+
+int main() {
+int n,denb,mes,k,x,x1,x2;
+char napr,d[100];
+printf ("Доброго времени суток\n");
+
+  do{
+    printf ("\n\nВведите номер задания (для выхода введите '0') : ");
+    scanf (" %d", &n);
+
+    switch( n )
+    {
+      case 1: // вывод дня и месяца
+          
+      printf ("введите день: ");
+      scanf ("%d",&denb);
+      printf ("введите номер месяца: ");
+      scanf ("%d",&mes);
+
+      if (denb<0||denb>31){ 
+            printf ("в месяце максимум 31 дней, давай по новой\n");
+            break;
+          }
+      if (mes == 2||mes == 4||mes == 6||mes == 9||mes == 11){
+        if(denb>30 ||(mes==2&denb>29)) 
+            printf ("в этом месяце нет стольки дней, давай по новой\n");
+            break;
+          }
+      if (mes<0||mes>12){ 
+            printf ("в году всего 12 месяцев, давай по новой\n");
+            break;
+          }          
+
+      
+      if((denb>9&denb<20)|| denb==20 || denb==30){
+        switch( denb )
+          {
+          case 10:
+            strcat(d,"десятое");
+            break;
+          case 11:
+            strcat(d,"одинадцатое");
+            break;
+          case 12:
+            strcat(d,"двенадцатое");
+            break;
+          case 13:
+            strcat(d,"тринадцатое");
+            break;
+          case 14:
+            strcat(d,"четырнадцатое");
+            break;
+          case 15:
+            strcat(d,"пятнадцатое");
+            break;
+          case 16:
+            strcat(d,"шестнадцатое");
+            break;
+          case 17:
+            strcat(d,"семнадцатое");
+            break;
+          case 18:
+            strcat(d,"восемнадцатое");
+            break;
+          case 19:
+            strcat(d,"девятнадцатое");
+            break;          
+          case 20:
+              strcat(d,"двадцатое");
+              break;
+          case 30:
+          
+              strcat(d,"тридцатое");
+              break;
+
+          }
+        }else{
+
+          switch( denb/10 )
+          {
+              case 2:
+                strcat(d,"двадцать ");
+                break;
+              case 3:
+                strcat(d,"тридцать ");
+                break;
+          }
+
+          denb = denb%10;
+           
+          switch( denb )
+          {
+              case 1:
+                strcat(d,"первое");
+                break;
+              case 2:
+                strcat(d,"второе");
+                break;
+              case 3:
+                strcat(d,"третье");
+                break;
+              case 4:
+                strcat(d,"четвертое");
+                break;
+              case 5:
+                strcat(d,"пятое");
+                break;
+              case 6:
+                strcat(d,"шестое");
+                break;
+              case 7:
+                strcat(d,"седьмое");
+                break;
+              case 8:
+                strcat(d,"восьмое");
+                break;
+              case 9:
+                strcat(d,"девятое");
+                break;
+            }
+          }
+
+        switch( mes )
+          {
+              case 1:
+                strcat(d," января");
+                break;
+              case 2:
+                strcat(d," февраля");
+                break;
+              case 3:
+                strcat(d," марта");
+                break;
+              case 4:
+                strcat(d," апреля");
+                break;
+              case 5:
+                strcat(d," мая");
+                break;
+              case 6:
+                strcat(d," июня");
+                break;
+              case 7:
+                strcat(d," июля");
+                break;
+              case 8:
+                strcat(d," августа");
+                break;
+              case 9:
+                strcat(d," сентября");
+                break;
+              case 10:
+                strcat(d," октября");
+                break;
+              case 11:
+                strcat(d," ноября");
+                break;
+              case 12:
+                strcat(d," декабря");
+                break;
+            }
+
+        
+        printf("- %s\n",d);
+        strcpy(d, "");
+
+          break;
+      
+
+      case 2: //мой онлайн компилятор не поддерживает кириллицу, поэтому направление дается латинскими буквами 
+        printf ("\nинструкция к роботу:\n(«N» — север, «W» — запад, «S» — юг, «E» — восток)\n(0 — продолжать движение, 1 — поворот налево, −1 — поворот направо)\n\n");
+        printf ("дайте роботу направление: ");
+        scanf (" %c",&napr);
+        printf ("дайте роботу команду: ");
+        scanf (" %d",&k);
+
+        switch( napr )
+          {
+              case 'n':
+                x = 1;
+                break;
+              case 'w':
+                x = 2;
+                break;
+              case 's':
+                x = 3;        
+                break;
+              case 'e':
+                x = 4;        
+                break;
+                 
+            }   
+
+        x = x-k; 
+
+        switch( x )
+          {
+              case 0:
+                strcat(d," ЗАПАД");
+                break;
+              case 1:
+                strcat(d," СЕВЕР");
+                break;
+              case 2:
+                strcat(d," ВОСТОК");
+                break;
+              case 3:
+                strcat(d," ЮГ");
+                break;
+              case 4:
+                strcat(d," ЗАПАД");
+                break;
+              case 5:
+                strcat(d," СЕВЕР");
+                break;
+            }        
+
+
+        printf("робот направляется на%s\n",d);
+        strcpy(d, "");
+        break;      
+
+
+      case 3:
+
+        printf ("введите количество заданий (в диапазоне 10–40): ");
+        scanf (" %d",&x);
+
+        if (x>40||x<10){ 
+            printf ("число не входит в диапазон 10–40, давай по новой\n");
+            break;
+          }
+                 
+        if(x<19){
+        switch( x )
+          {
+          case 10:
+            strcat(d,"десять ");
+            break;
+          case 11:
+            strcat(d,"одинадцать ");
+            break;
+          case 12:
+            strcat(d,"двенадцать ");
+            break;
+          case 13:
+            strcat(d,"тринадцать ");
+            break;
+          case 14:
+            strcat(d,"четырнадцать ");
+            break;
+          case 15:
+            strcat(d,"пятнадцать ");
+            break;
+          case 16:
+            strcat(d,"шестнадцать ");
+            break;
+          case 17:
+            strcat(d,"семнадцать ");
+            break;
+          case 18:
+            strcat(d,"восемнадцать ");
+            break;
+          case 19:
+            strcat(d,"девятнадцать ");
+            break;
+
+          }
+        }else{
+
+          switch( x/10 )
+          {
+              case 2:
+                strcat(d,"двадцать ");
+                break;
+              case 3:
+                strcat(d,"тридцать ");
+                break;
+              case 4:
+                strcat(d,"сорок ");
+                break;
+          }
+
+          x = x%10;
+           
+          switch( x )
+          {
+              case 1:
+                strcat(d,"одно ");
+                break;
+              case 2:
+                strcat(d,"два ");
+                break;
+              case 3:
+                strcat(d,"три ");
+                break;
+              case 4:
+                strcat(d,"четыре ");
+                break;
+              case 5:
+                strcat(d,"пять ");
+                break;
+              case 6:
+                strcat(d,"шесть ");
+                break;
+              case 7:
+                strcat(d,"семь ");
+                break;
+              case 8:
+                strcat(d,"восемь ");
+                break;
+              case 9:
+                strcat(d,"девять ");
+                break;
+            }
+          }
+
+        if(x%10==1 & x!=11){
+          strcat(d,"учебное задание");
+        }else{
+          strcat(d,"учебных заданий");
+        }
+        printf("- %s\n",d);
+        strcpy(d, "");  
+          break;
+
+
+      case 4:      
+        printf ("введите число (в диапазоне 1–999): ");
+        scanf (" %d",&x);
+
+        if (x>999||x<1){ 
+            printf ("число не входит в диапазон 1–999, давай по новой\n");
+            break;
+          }          
+
+        if(x>99){          
+          switch( x/100 )
+          {
+              case 1:
+                strcat(d,"сто ");
+                break;
+              case 2:
+                strcat(d,"двести ");
+                break;
+              case 3:
+                strcat(d,"триста ");
+                break;
+              case 4:
+                strcat(d,"четыреста ");
+                break;
+              case 5:
+                strcat(d,"пятьсот ");
+                break;
+              case 6:
+                strcat(d,"шестьсот ");
+                break;
+              case 7:
+                strcat(d,"семьсот ");
+                break;
+              case 8:
+                strcat(d,"восемьсот ");
+                break;
+              case 9:
+                strcat(d,"девятьсот ");
+                break;
+          }
+          x=x%100;
+        }
+
+          if(x>9 & x<19){
+        switch( x )
+          {
+          case 10:
+            strcat(d,"десять ");
+            break;
+          case 11:
+            strcat(d,"одинадцать ");
+            break;
+          case 12:
+            strcat(d,"двенадцать ");
+            break;
+          case 13:
+            strcat(d,"тринадцать ");
+            break;
+          case 14:
+            strcat(d,"четырнадцать ");
+            break;
+          case 15:
+            strcat(d,"пятнадцать ");
+            break;
+          case 16:
+            strcat(d,"шестнадцать ");
+            break;
+          case 17:
+            strcat(d,"семнадцать ");
+            break;
+          case 18:
+            strcat(d,"восемнадцать ");
+            break;
+          case 19:
+            strcat(d,"девятнадцать ");
+            break;
+
+          }
+        }else{
+
+          switch( x/10 )
+          {
+              case 2:
+                strcat(d,"двадцать ");
+                break;
+              case 3:
+                strcat(d,"тридцать ");
+                break;
+              case 4:
+                strcat(d,"сорок ");
+                break;
+              case 5:
+                strcat(d,"пятьдесят ");
+                break;
+              case 6:
+                strcat(d,"шестьдесят ");
+                break;
+              case 7:
+                strcat(d,"семьдесят ");
+                break;
+              case 8:
+                strcat(d,"восемьдесят ");
+                break;
+              case 9:
+                strcat(d,"девятьсят ");
+                break;
+          }
+
+          x = x%10;
+           
+          switch( x )
+          {
+              case 1:
+                strcat(d,"один ");
+                break;
+              case 2:
+                strcat(d,"два ");
+                break;
+              case 3:
+                strcat(d,"три ");
+                break;
+              case 4:
+                strcat(d,"четыре ");
+                break;
+              case 5:
+                strcat(d,"пять ");
+                break;
+              case 6:
+                strcat(d,"шесть ");
+                break;
+              case 7:
+                strcat(d,"семь ");
+                break;
+              case 8:
+                strcat(d,"восемь ");
+                break;
+              case 9:
+                strcat(d,"девять ");
+                break;
+            }
+          }
+
+          printf("- %s\n",d);
+          strcpy(d, "");  
+          break;
+      
+      case 5:      
+        printf ("введите год: ");
+        scanf (" %d",&x);
+        x1 = (x-1)%60/12;
+        x2 = (x-1)%60%12;
+        strcat(d,"год ");
+
+        switch( x1 )
+          {
+              case 0:
+                strcat(d,"зелён");
+                break;
+              case 1:
+                strcat(d,"красн");
+                break;
+              case 2:
+                strcat(d,"желт");
+                break;
+              case 3:
+                strcat(d,"бел");
+                break;
+              case 4:
+                strcat(d,"черн");
+                break;
+              
+            }
+        
+        switch( x2 )
+          {
+              case 0:
+                strcat(d,"ой крысы");
+                break;
+              case 1:
+                strcat(d,"ой коровы");
+                break;
+              case 2:
+                strcat(d,"ого тигра");
+                break;
+              case 3:
+                strcat(d,"ого зайца");
+                break;
+              case 4:
+                strcat(d,"ого дракона");
+                break;
+              case 5:
+                strcat(d,"ой змеи");
+                break;
+              case 6:
+                strcat(d,"ой лошади");
+                break;
+              case 7:
+                strcat(d,"ой овцы");
+                break;
+              case 8:
+                strcat(d,"ой обезьяны");
+                break;
+              case 9:
+                strcat(d,"ой курицы");
+                break;
+              case 10:
+                strcat(d,"ой собаки");
+                break;
+              case 11:
+                strcat(d,"ой свиньи");
+                break;
+            }
+        
+        printf("цвет - %d, животное - %d \n",x1,x2);
+        
+        printf("- %s\n",d);
+        strcpy(d, ""); 
+        break;
+      
+      case 0:      
+          printf ("пока\n");
+          break;
+
+      default:
+          printf( "Неправильный ввод.\n" );       
+    }
+    
+  }while(n!=0);
+
+return 0;
+}
