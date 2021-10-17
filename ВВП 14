@@ -1,0 +1,142 @@
+#include <stdio.h>
+#include <math.h>
+#include <fenv.h>
+
+int main() {
+long double PHI, N,sqrt5;
+
+int zzz,n,x,i,a,b,j,k;
+float otv,p,s;
+int f[30];
+printf ("Доброго времени суток\n");
+
+  do{
+    printf ("\n\nВведите номер задания (для выхода введите '0') : ");
+    scanf (" %d", &zzz);
+
+    switch( zzz )
+    {
+      case 1:
+        printf ("введите два положительных числа: ");
+        scanf (" %d %d",&a,&b);
+        if (a<0||b<0){ 
+            printf ("ну сказано же положительных... ээх, давай по новой\n");
+            break;
+        }
+        if (a>b){  //по условию A<B
+            x=a;
+            a=b;
+            b=x;
+        }
+        
+        for (i=a;i<=b;i++){
+          printf("\n");
+          for(j=1;j<=i;j++){
+            printf(" %d",i);
+          }
+        }
+
+        break;
+      
+
+      case 2: 
+        printf ("введите два положительных числа: ");
+        scanf (" %d %d",&a,&b);
+        if (a<0||b<0){ 
+            printf ("ну сказано же положительных... ээх, давай по новой\n");
+            break;
+        }
+        if (a<b){  //по условию A>B
+            x=a;
+            a=b;
+            b=x;
+        }
+        i=0;
+        x=b;
+        while(x<=a){
+          x=x+b;
+          i++;
+        }
+
+        printf ("в отрезке А(%d) %d отрезков В(%d)",a,i,b);
+
+          break;
+
+      case 3:      
+        printf ("введите число: ");
+        scanf (" %d",&n);
+        if (n<1){ 
+            printf ("число <1, давай по новой\n");
+            break;
+        }
+        k=2;
+        x=1;
+        while(x<n){
+          x=x+k;
+          k++;
+        }
+        printf ("число: %d, сумма: %d",k,x);      
+        break; 
+
+      case 4: 
+        printf ("введите размер процента (0 < P < 25): ");
+        scanf (" %f",&p);
+        if (p<0||p>25){ 
+            printf ("ну сказано же 0 < P < 25... ээх, давай по новой\n");
+            break;
+        }
+
+        k=0;
+        s=1000;
+        while(s<1100){
+          s = s+(s/100*p);
+          k++;
+        }
+
+        printf ("через %d месяцев, размер вклада превысит 1100руб и будет составлять %fруб.",k,s);
+          break;
+
+      case 5: 
+      printf ("введите два положительных числа: ");
+        scanf (" %d %d",&a,&b);
+        if (a<0||b<0){ 
+            printf ("ну сказано же положительных... ээх, давай по новой\n");
+            break;
+        }
+        while (a != 0 & b!= 0){
+          if (a > b){
+            a = a % b;
+          }else{
+            b = b % a;
+          }
+        }
+ 
+        printf("НОД = %d",a + b);
+          break;
+
+      case 6:         
+        printf ("введите число: ");
+        scanf (" %Lf",&N);
+        if (N<1){ 
+            printf ("число <1, давай по новой\n");
+            break;
+        }
+       
+        n = nearbyint(log(N*sqrt(5)) / log((1+sqrt(5))/2)); //преобразовываем формулу нахождения числа Фибоначчи                           
+      
+        printf("у числа Фибоначчи %.0Lf - %d-й порядковый номер",N,n);
+
+          break;  
+
+      case 0:      
+          printf ("пока\n");
+          break;
+
+      default:
+          printf( "Неправильный ввод.\n" );       
+    }
+    
+  }while(zzz!=0);
+
+return 0;
+}
