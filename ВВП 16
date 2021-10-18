@@ -1,0 +1,132 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <malloc.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main() {
+int zzz,n,i,a,d;
+int *arr;
+printf ("Доброго времени суток\n");
+
+  do{
+    printf ("\n\nВведите номер задания (для выхода введите '0') : ");
+    scanf (" %d", &zzz);
+
+    switch( zzz )
+    {
+      case 1: //N первых положительных нечетных чисел
+        printf("Введите размер массива: ");
+        scanf("%d", &n); 
+        if (n<0){ 
+            printf ("ээх, давай по новой\n");
+            break;
+        }
+        arr = (int*)malloc(n * sizeof(int)); // Выделение памяти   
+        for (i=1; i<=n; i+=2) printf("%d ", i); 
+              
+        break;
+
+      case 2: // A, A·D, A·D2 , A·D3  
+        printf("Введите размер массива: ");
+        scanf("%d", &n); 
+        if (n<1){ 
+            printf ("ээх, давай по новой\n");
+            break;
+        }
+        arr = (int*)malloc(n * sizeof(int)); 
+
+        printf("Введите первый член: ");
+        scanf("%d", &a); 
+        printf("Введите знаменатель: ");
+        scanf("%d", &d);
+
+        for (i=1; i<=n; i++){
+          printf("%d ", a);
+          a = a*pow(d,i);
+        } 
+        printf("%d ", a);
+        
+         break;
+
+      case 3: //массив 
+        printf("Введите размер массива: ");
+        scanf("%d", &n); 
+        if (n<2){ 
+            printf ("ээх, давай по новой\n");
+            break;
+        }
+        arr = (int*)malloc(n * sizeof(int)); 
+
+        printf("arr[1]: ");
+        scanf("%d", &arr[1]); 
+        printf("arr[2]: ");
+        scanf("%d", &arr[2]);
+
+        for (i=3; i<=n; i++){
+          arr[i] = arr[i-1]+arr[i-2];          
+          printf("arr[%d]: %d\n",i, arr[i]);
+        } 
+        
+          break;
+
+      case 4: //A1, AN , A2, AN−1, A3, AN−2,   
+        printf("Введите размер массива: ");
+        scanf("%d", &n); 
+        if (n<2){ 
+            printf ("ээх, давай по новой\n");
+            break;
+        }
+        arr = (int*)malloc(n * sizeof(int)); 
+
+        for (i=1; i<=n; i++){ //заполняем массив тупа подряд
+          arr[i]=i;
+        }
+
+        for (i=1; i<=n/2; i++){
+          printf("arr[%d]: %d\n",i, arr[i]);
+          printf("arr[%d]: %d\n",n-i+1, arr[n-i+1]);
+        }
+        if (n%2 != 0){
+          printf("arr[%d]: %d\n",n/2+1, arr[n/2+1]);
+        }
+        
+          break;
+
+      case 5: // чет/нечет    
+        printf("Введите размер массива: ");
+        scanf("%d", &n); 
+        if (n<2){ 
+            printf ("ээх, давай по новой\n");
+            break;
+        }
+        arr = (int*)malloc(n * sizeof(int)); 
+
+        for (i=1; i<=n; i++){ //заполняем массив тупа подряд
+          arr[i]=i;
+        }
+        for(i=1; i<n; i+=2){
+          printf("arr[%d]: %d\n",i, arr[i]);
+        }
+
+        for(i=n-(n%2); i>0; i-=2){
+          printf("arr[%d]: %d\n",i, arr[i]);
+        }
+        
+
+
+          break;
+        
+
+      case 0:      
+          printf ("пока\n");
+          break;
+
+      default:
+          printf( "Неправильный ввод.\n" );       
+    }
+    
+  }while(zzz!=0);
+
+return 0;
+}
